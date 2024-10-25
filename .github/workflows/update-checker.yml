@@ -16,6 +16,9 @@ env:
   REPO_URL: https://github.com/LiBwrt-op/openwrt-6.x
   REPO_BRANCH: main
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
 #  schedule:
@@ -49,7 +52,7 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v2
       with:
-        token: ${{ github.token }}
+        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         event-type: Source Code Update
 
     - name: Delete workflow runs
