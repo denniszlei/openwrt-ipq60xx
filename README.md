@@ -1,3 +1,14 @@
+My words:
+1. can directly download compiled firmware from [here](https://github.com/breeze303/openwrt-ci/releases);
+2. must change to 512m when doing self compiling, otherwise will have reboot issue after flashing. 3 places need to be changed:
+    > kernel module --> wireless drivers --> memory profile --> 512m
+    > 
+    > kernel module --> network devices --> kmod-qca-nss-drv --> configuration --> 512m
+    > 
+    > ipq 选项: memory profile --> 512m
+
+
+
 **English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 # Actions-OpenWrt
